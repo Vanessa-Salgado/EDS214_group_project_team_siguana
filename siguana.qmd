@@ -5,10 +5,24 @@ editor: visual
 ---
 
 ```{r}
-# how to load the data 
+# how to load the data
 # data_obj <- "https://arcticdata.io/metacat/d1/mn/v2/object/urn%3Auuid%3A9e123f84-ce0d-4094-b898-c9e73680eafa"
 # path <- "~/api-practice"
 # 
-# download_d1_data(data_obj, 
+# download_d1_data(data_obj,
 #                  path)
+```
+
+### Load in Data from EDI
+
+```{r}
+library(tidyverse)
+library(metajam)
+```
+
+```{r}
+Q1_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=96e0ef7b3f2bc92485a559645d545845"
+Q2_data <-"https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=8d1e2d357a2dc2d56b9eedea56a46236"
+Q3_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=665f37efee3109a7c3aff95e079e2de2"
+RPM_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=acb18d969cf36e7efda2604a1449e816"
 ```
