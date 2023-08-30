@@ -35,3 +35,19 @@ library(metajam)
 #download_d1_data(Q3_data, path)
 #download_d1_data(RPM_data, path)
 ```
+
+# Reading in the Data
+
+```{r}
+#Reading in all datasets into a list
+q1_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca1-Bisley__csv")
+q2_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca2-Bisley__csv")
+q3_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca3-Bisley__csv")
+prm <- read_d1_files("/courses/EDS214/group_project/team_siguana/__RioMameyesPuenteRoto__csv")
+
+#Make the data into dataframes
+q1_data_df <- q1_data$data
+q2_data_df <- q2_data$data
+q3_data_df <- q3_data$data
+prm_data <- prm$data
+```
