@@ -64,3 +64,23 @@ hugo_data <- q1_data_df %>%
   full_join(prm_data) %>% 
   select(Sample_ID, Sample_Date, K, `NO3-N`)
 ```
+
+## Plot
+
+```{r}
+# Hope / Luna 
+```
+
+# Read in Hurricane Maria NOAA data 
+
+How long does it take for the stream composition to get back to baseline after two major hurricanes in Puerto Rico: Hurricane Hugo in 1989, and Hurricane Maria in 2017.
+
+-   Is there a difference between the two hurricanes?
+
+-   gage ht; chemical composition
+
+-   compare three locations to see where the hurricanes hit hardest?
+
+```{r}
+# read in hurricane maria data
+```
