@@ -21,8 +21,17 @@ library(metajam)
 ```
 
 ```{r}
-Q1_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=96e0ef7b3f2bc92485a559645d545845"
-Q2_data <-"https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=8d1e2d357a2dc2d56b9eedea56a46236"
-Q3_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=665f37efee3109a7c3aff95e079e2de2"
-RPM_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=acb18d969cf36e7efda2604a1449e816"
+## loaded data into group project folder
+
+#Q1_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=96e0ef7b3f2bc92485a559645d545845"
+#Q2_data <-"https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=8d1e2d357a2dc2d56b9eedea56a46236"
+#Q3_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=665f37efee3109a7c3aff95e079e2de2"
+#RPM_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=acb18d969cf36e7efda2604a1449e816"
+
+#path <- "/courses/EDS214/group_project/team_siguana"
+
+#download_d1_data(Q1_data, path)
+#download_d1_data(Q2_data, path)
+#download_d1_data(Q3_data, path)
+#download_d1_data(RPM_data, path)
 ```
