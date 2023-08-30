@@ -50,4 +50,17 @@ q1_data_df <- q1_data$data
 q2_data_df <- q2_data$data
 q3_data_df <- q3_data$data
 prm_data <- prm$data
+
+q1_attribute_metadata <- q1_data$attribute_metadata
+```
+
+## Data for Remaking Graph
+
+```{r}
+# select columns of interest: K, NO3-N, Sample_Date, Sample_ID
+hugo_data <- q1_data_df %>% 
+  full_join(q2_data_df) %>% 
+  full_join(q3_data_df) %>% 
+  full_join(prm_data) %>% 
+  select(Sample_ID, Sample_Date, K, `NO3-N`)
 ```
