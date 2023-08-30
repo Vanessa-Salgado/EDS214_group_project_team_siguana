@@ -36,7 +36,7 @@ library(metajam)
 #download_d1_data(RPM_data, path)
 ```
 
-# Reading in the Data
+# Reading in the Water Chemistry Stream Data
 
 ```{r}
 #Reading in all datasets into a list
