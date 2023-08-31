@@ -16,14 +16,14 @@ Group Project Members: Carly Caswell, [Luna Catalan](https://github.com/lunacata
 
 ### Plotting Out
 
-<!--# [Plot from Assignement ] -->
+Plot from Assignment
 
 ![](images/luq-ts-plot.png){width="2.88in" height="1.61in"}
 
-<!--# [Our new and impoved Plot ] -->
+Our new and impoved Plot
 
 ## Goal 2 - Posing our Own Question
 
-### <!--#[Insert our final question here ?] -->
+### Insert our final question here ?
 
 ## References
