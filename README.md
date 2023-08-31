@@ -14,9 +14,13 @@ Group Project Members: Carly Caswell, [Luna Catalan](https://github.com/lunacata
 
 <!--# [insert flow chart here] -->
 
+![](images/Screen Shot 2023-08-28 at 1.42.14 PM.png){width="328"}
+
 ### Plotting Out
 
 <!--# [Plot from Assignement ] -->
+
+![](images/luq-ts-plot.png){width="371"}
 
 <!--# [Our new and impoved Plot ] -->
 
