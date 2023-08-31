@@ -68,10 +68,35 @@ hugo_data <- q1_data_df %>%
 ## Plot
 
 ```{r}
-# Hope / Luna 
+# Wrangling data for plot 
+hugo_plot <- hugo_data %>% 
+  pivot_longer(cols = c(3,4)) %>% 
+  mutate(year = as.numeric(format(Sample_Date,'%Y'))) %>% 
+  filter(year %in% c(1988:1995))
+
+# Remaking the plot
+ggplot(hugo_plot, aes(Sample_Date, value)) +
+  geom_line(aes(color = Sample_ID)) +
+  facet_wrap(~name, 
+             scales =  "free", 
+             ncol = 1,  
+             strip.position = "left",  
+             labeller = as_labeller(c("NO3-N" = "NO3-N ug/L", "K" = "K mg/L"))) + 
+  labs(title = "Chemical concentrations in streams", 
+       x = "Year",
+       y = "", 
+       color = "Site") +
+  scale_color_manual(breaks = c("MPR", "Q1", "Q2", "Q3"),
+                        values=c("gray48", "cornflowerblue", "pink", "palegreen3")) +
+  theme_minimal() +
+  geom_vline(xintercept = as.numeric(as.Date("1989-09-09")), 
+             linetype=4) +
+  theme(plot.title = element_text(face="bold", size = 14)) +
+  theme(axis.title = element_text(face = "bold")) +
+  theme(strip.text = element_text(face = "bold", size = 10)) 
 ```
 
-# Read in Hurricane Maria NOAA data 
+# Read in Hurricane Maria NOAA data
 
 How long does it take for the stream composition to get back to baseline after two major hurricanes in Puerto Rico: Hurricane Hugo in 1989, and Hurricane Maria in 2017.
 
