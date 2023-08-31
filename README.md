@@ -12,7 +12,7 @@ Group Project Members: Carly Caswell, [Luna Catalan](https://github.com/lunacata
 
 ### Workflow
 
-![](images/Screen Shot 2023-08-28 at 1.42.14 PM.png){width="2.56in"}
+![](images/Workflow.png){width="2in"}
 
 ### Plotting Out
 
