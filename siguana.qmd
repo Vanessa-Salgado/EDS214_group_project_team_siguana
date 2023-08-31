@@ -18,6 +18,7 @@ editor: visual
 ```{r}
 library(tidyverse)
 library(metajam)
+library(lubridate)
 ```
 
 ```{r}
@@ -71,7 +72,7 @@ hugo_data <- q1_data_df %>%
 # Hope / Luna 
 ```
 
-# Read in Hurricane Maria NOAA data 
+# Read in Hurricane Maria NOAA data
 
 How long does it take for the stream composition to get back to baseline after two major hurricanes in Puerto Rico: Hurricane Hugo in 1989, and Hurricane Maria in 2017.
 
@@ -83,4 +84,34 @@ How long does it take for the stream composition to get back to baseline after t
 
 ```{r}
 # read in hurricane maria data
+
+maria_data_obj <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=ef01a691d7915bb3a8d6b0b69dc2b4ba"
+path <- "/courses/EDS214/group_project/team_siguana"
+
+download_d1_data(maria_data_obj,
+                 path)
+```
+
+```{r}
+maria_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__BasicFieldData-Streams__csv")
+
+maria_data_df <- maria_data$data
+```
+
+```{r}
+#Now let's create a subset of the data to just filter for our dates of interest. In this case it is 1989 - 2018
+maria_data_subset <- maria_data_df %>% 
+  mutate(Date = lubridate::mdy_hm(Sample_Date)) %>% 
+  mutate(Year = lubridate::year(Date)) %>% 
+  filter(Year %in% c(1989:2019), Sample_ID == "Q1" | Sample_ID == "Q2" | Sample_ID == "Q3" | Sample_ID == "QS") %>% 
+  select(-Code, -Sample_Date, -Sample_Time, -Cond)
+```
+
+```{r}
+
+#First Data Visualization
+#maria_data_subset %>% 
+#  ggplot(aes(x= Year, y = Gage_Ht)) + geom_point(aes(color = Sample_ID)) + facet_wrap(vars(Year))
+
+
 ```
