@@ -99,7 +99,7 @@ ggplot(hugo_plot, aes(Sample_Date, value, color = Sample_ID, linetype = "solid")
   theme(strip.text = element_text(face = "bold", size = 10))
 ```
 
-Goal # 2:
+Goal \# 2:
 
 ```{r}
 #Let's read in the basic stream data 
@@ -124,6 +124,7 @@ maria_data_subset_test <- maria_data_df %>%
   mutate(Year = lubridate::year(Date)) %>% 
   filter(Year == 2018 | Year == 2017 | Year == 2016 | Year == 2015, Sample_ID == "Q1" | Sample_ID == "Q2" | Sample_ID == "Q3") %>% 
   select(-Code, -Sample_Date, -Sample_Time, -Cond)
+
 ```
 
 ```{r}
@@ -131,8 +132,9 @@ maria_data_subset_test <- maria_data_df %>%
 maria_data_subset_test %>% 
 ggplot(aes(x= Date, y = Temp)) + geom_point(aes(color = Sample_ID)) +
   theme_minimal() +
-  geom_vline(aes(xintercept = as.numeric(as.Date("2018-10-10")))) +
- labs(title = "Stream Temperature Fluctuation During Hurricane Season", 
+  geom_vline(aes(xintercept = as.numeric(as.POSIXct("2018-10-10"))),linetype = 4) +
+  annotate("text", x= as.POSIXct("2018-09-10"), y=22, label="Hurricane Maria", angle=90) +
+  labs(title = "Stream Temperature Fluctuation During Hurricane Season", 
        x = "Year",
        y = "Temperature") +
   guides(color=guide_legend("Site:")) +
