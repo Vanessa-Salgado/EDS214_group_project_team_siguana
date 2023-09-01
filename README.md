@@ -42,4 +42,12 @@ What we can see with this graph is the fluctuation of stream temperature (in cel
 
 ### ![](images/plot_2_temp_patterns.png){width="475"}
 
-## References
+## Sources
+
+Datasets
+
+Q1 : <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=96e0ef7b3f2bc92485a559645d545845>Q2: <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=8d1e2d357a2dc2d56b9eedea56a46236>Q3: <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=665f37efee3109a7c3aff95e079e2de2> RPM: <https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=acb18d969cf36e7efda2604a1449e816>
+
+## Acknowledgements
+
+Professor Brun
