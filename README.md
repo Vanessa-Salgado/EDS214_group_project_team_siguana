@@ -8,22 +8,30 @@ Source: [Investigating the impact of Hurricane Hugo on Stream Chemistry data in 
 
 Group Project Members: Carly Caswell, [Luna Catalan](https://github.com/lunacatalan), [Hope Hahn](https://github.com/h-hahn), [Vanessa Salgado](https://github.com/Vanessa-Salgado)
 
+## Workflow
+
+![](images/Workflow.png){width="192"}
+
 ## Goal 1 - Reproducing and Improving a Plot
 
-### Workflow
+### Original Plot Indicating Chemical Concentrations during Hurricane Hugo
 
-![](images/Workflow.png){width="2in"}
+![](images/luq-ts-plot.png){width="3.89in" height="2.18in"}
 
-### Plotting Out
+### Recreated Plot
 
-Plot from Assignment
+![](images/hugo_plot_1.png){width="399"}
 
-![](images/luq-ts-plot.png){width="2.88in" height="1.61in"}
+### Improvements on Plot 1
 
-Our new and impoved Plot
+Upon reading the scientific paper, our team found out that the chemical concentrations were measured over 9 weeks, therefore we graphed over 9 week moving averages.
+
+![](images/Plot_1_9_Week_Moving_Averages.png){width="474"}
 
 ## Goal 2 - Posing our Own Question
 
-### Insert our final question here ?
+### Can temperature patterns be identified in Puerto Rico during hurricane season from years 2015 to 2019?
+
+### ![](images/plot_2_temp_patterns.png){width="475"}
 
 ## References
