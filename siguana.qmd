@@ -92,7 +92,9 @@ ggplot(hugo_plot, aes(Sample_Date, value, color = Sample_ID, linetype = "solid")
              linetype=4) +
   theme(plot.title = element_text(face="bold", size = 14)) +
   theme(axis.title = element_text(face = "bold")) +
-  theme(strip.text = element_text(face = "bold", size = 10))
+  theme(strip.text = element_text(face = "bold", size = 10)) +
+  #remove legend linetype
+  guides(linetype = FALSE) 
 ```
 
 ## Goal \# 2: Reading in the Data
