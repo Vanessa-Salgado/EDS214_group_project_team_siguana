@@ -19,6 +19,7 @@ editor: visual
 library(tidyverse)
 library(metajam)
 library(lubridate)
+library(tidyquant)
 ```
 
 ```{r}
@@ -76,8 +77,9 @@ hugo_plot <- hugo_data %>%
   filter(year %in% c(1988:1995))
 
 # Remaking the plot
-ggplot(hugo_plot, aes(Sample_Date, value)) +
-  geom_line(aes(color = Sample_ID)) +
+ggplot(hugo_plot, aes(Sample_Date, value, color = Sample_ID, linetype = "solid")) +
+  #geom_line(aes(color = Sample_ID)) +
+  geom_ma(inherit.aes = TRUE, na.rm = TRUE, ma_fun = SMA, n = 63) + # include moving averages instead of geom_line
   facet_wrap(~name, 
              scales =  "free", 
              ncol = 1,  
@@ -94,7 +96,7 @@ ggplot(hugo_plot, aes(Sample_Date, value)) +
              linetype=4) +
   theme(plot.title = element_text(face="bold", size = 14)) +
   theme(axis.title = element_text(face = "bold")) +
-  theme(strip.text = element_text(face = "bold", size = 10)) 
+  theme(strip.text = element_text(face = "bold", size = 10))
 ```
 
 Goal # 2:
