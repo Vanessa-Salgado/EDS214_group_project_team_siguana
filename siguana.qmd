@@ -132,16 +132,19 @@ maria_data_subset_test <- maria_data_df %>%
 maria_data_subset_test %>% 
 ggplot(aes(x= Date, y = Temp)) + geom_point(aes(color = Sample_ID)) +
   theme_minimal() +
-  geom_vline(aes(xintercept = as.numeric(as.POSIXct("2018-10-10"))),linetype = 4) +
-  annotate("text", x= as.POSIXct("2018-09-10"), y=22, label="Hurricane Maria", angle=90) +
+  geom_vline(aes(xintercept = as.numeric(as.POSIXct("2017-09-20"))),linetype = 4) +
+  annotate("text", x= as.POSIXct("2017-08-10"), y=27.5, label="Hurricane Maria", angle=90) +
   labs(title = "Stream Temperature Fluctuation During Hurricane Season", 
        x = "Year",
        y = "Temperature") +
   guides(color=guide_legend("Site:")) +
   theme(plot.title = element_text(face="bold", size = 14)) +
   theme(axis.title = element_text(face = "bold")) +
-  theme(strip.text = element_text(face = "bold", size = 10)) 
-
+  theme(strip.text = element_text(face = "bold", size = 10)) +
+  annotate('rect', xmin= as.POSIXct("2017-06-01"), xmax= as.POSIXct("2017-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
+  annotate('rect', xmin= as.POSIXct("2016-06-01"), xmax= as.POSIXct("2016-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
+  annotate('rect', xmin= as.POSIXct("2015-06-01"), xmax= as.POSIXct("2015-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
+  annotate('rect', xmin= as.POSIXct("2018-06-01"), xmax= as.POSIXct("2018-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue")
 
 
 ```
