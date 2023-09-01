@@ -4,18 +4,10 @@ format: html
 editor: visual
 ---
 
-```{r}
-# how to load the data
-# data_obj <- "https://arcticdata.io/metacat/d1/mn/v2/object/urn%3Auuid%3A9e123f84-ce0d-4094-b898-c9e73680eafa"
-# path <- "~/api-practice"
-# 
-# download_d1_data(data_obj,
-#                  path)
-```
-
-### Load in Data from EDI
+## Load in Data from EDI
 
 ```{r}
+#First, load in the packages we need:
 library(tidyverse)
 library(metajam)
 library(lubridate)
@@ -24,7 +16,7 @@ library(paletteer)
 ```
 
 ```{r}
-## loaded data into group project folder
+## We now need to load the data into the class folder. We have commented this out because it only needs to happen once.
 
 #Q1_data <- "https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=96e0ef7b3f2bc92485a559645d545845"
 #Q2_data <-"https://portal.edirepository.org/nis/dataviewer?packageid=knb-lter-luq.20.4923061&entityid=8d1e2d357a2dc2d56b9eedea56a46236"
@@ -39,16 +31,18 @@ library(paletteer)
 #download_d1_data(RPM_data, path)
 ```
 
-# Reading in the Water Chemistry Stream Data
+## Goal \# 1: Reading in the Water Chemistry Stream Data
 
 ```{r}
 #Reading in all datasets into a list
+
 q1_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca1-Bisley__csv")
 q2_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca2-Bisley__csv")
 q3_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__QuebradaCuenca3-Bisley__csv")
 prm <- read_d1_files("/courses/EDS214/group_project/team_siguana/__RioMameyesPuenteRoto__csv")
 
 #Make the data into dataframes
+
 q1_data_df <- q1_data$data
 q2_data_df <- q2_data$data
 q3_data_df <- q3_data$data
@@ -57,26 +51,27 @@ prm_data <- prm$data
 q1_attribute_metadata <- q1_data$attribute_metadata
 ```
 
-## Data for Remaking Graph
+## Goal \# 1: Data Wrangling
 
 ```{r}
-# select columns of interest: K, NO3-N, Sample_Date, Sample_ID
+# Let's select columns of interest: K, NO3-N, Sample_Date, Sample_ID
 hugo_data <- q1_data_df %>% 
   full_join(q2_data_df) %>% 
   full_join(q3_data_df) %>% 
   full_join(prm_data) %>% 
   select(Sample_ID, Sample_Date, K, `NO3-N`)
-```
 
-## Plot
-
-```{r}
 # Wrangling data for plot 
 hugo_plot <- hugo_data %>% 
   pivot_longer(cols = c(3,4)) %>% 
   mutate(year = as.numeric(format(Sample_Date,'%Y'))) %>% 
   filter(year %in% c(1988:1995))
 
+```
+
+## Goal \# 1: Plot
+
+```{r}
 # Remaking the plot
 ggplot(hugo_plot, aes(Sample_Date, value, color = Sample_ID, linetype = "solid")) +
   #geom_line(aes(color = Sample_ID)) +
@@ -100,7 +95,7 @@ ggplot(hugo_plot, aes(Sample_Date, value, color = Sample_ID, linetype = "solid")
   theme(strip.text = element_text(face = "bold", size = 10))
 ```
 
-Goal \# 2:
+## Goal \# 2: Reading in the Data
 
 ```{r}
 #Let's read in the basic stream data 
@@ -113,10 +108,13 @@ download_d1_data(maria_data_obj,
 ```
 
 ```{r}
+#We are now going to transform this data into a dataframe
 maria_data <- read_d1_files("/courses/EDS214/group_project/team_siguana/https_pasta.lternet.edu_package_metadata_eml_knb-lter-luq_20_4923061__BasicFieldData-Streams__csv")
 
 maria_data_df <- maria_data$data
 ```
+
+## Goal \# 2: Data Wrangling
 
 ```{r}
 #Now let's create a subset of the data to just filter for our dates of interest. In this case it is for the years 2015 - 2018.
@@ -127,6 +125,8 @@ maria_data_subset_test <- maria_data_df %>%
   select(-Code, -Sample_Date, -Sample_Time, -Cond)
 
 ```
+
+## Goal \# 2: Plot
 
 ```{r}
 #Now we are going to graph the data:
