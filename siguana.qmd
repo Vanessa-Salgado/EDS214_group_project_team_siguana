@@ -20,6 +20,7 @@ library(tidyverse)
 library(metajam)
 library(lubridate)
 library(tidyquant)
+library(paletteer)
 ```
 
 ```{r}
@@ -144,7 +145,8 @@ ggplot(aes(x= Date, y = Temp)) + geom_point(aes(color = Sample_ID)) +
   annotate('rect', xmin= as.POSIXct("2017-06-01"), xmax= as.POSIXct("2017-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
   annotate('rect', xmin= as.POSIXct("2016-06-01"), xmax= as.POSIXct("2016-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
   annotate('rect', xmin= as.POSIXct("2015-06-01"), xmax= as.POSIXct("2015-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
-  annotate('rect', xmin= as.POSIXct("2018-06-01"), xmax= as.POSIXct("2018-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue")
+  annotate('rect', xmin= as.POSIXct("2018-06-01"), xmax= as.POSIXct("2018-11-30"), ymin = 20, ymax = 30, alpha = 0.15, fill = "cornflowerblue") +
+  paletteer::scale_colour_paletteer_d("unikn::pal_signal")
 
 
 ```
